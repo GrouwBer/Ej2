@@ -1,0 +1,361 @@
+/* Variáveis */
+:root {
+  /* Definição de variáveis para tamanhos de fonte e cores des seccoes */
+  --font-pequena: 1rem;
+  --font-media: 1.5rem;
+  --font-grande: 2rem;
+  --font-enorme: 2.625rem;
+  --cor-inicio: #ffffff;
+  --cor-servico: #F5F5DC;
+  --cor-contato: #000065;
+  --cor-sobre: #142c54;
+}
+
+section.inicio {
+  background-color: white;
+}
+
+section.sobre {
+  background-color: var(--cor-sobre);
+}
+
+section.contato {
+  background-color: var(--cor-contato);
+}
+
+/* Configurações gerais */
+html {
+  scroll-snap-type: y proximity; /* Faz o "Snap" do scroll */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--cor-inicio);
+}
+
+a {
+  /* Estilo para links */
+  text-decoration: none;
+  font-size: var(--font-media);
+}
+
+
+/* Animações */ 
+@keyframes aparecer {
+  /* Definição da animação de aparecimento */
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.hover {
+  color: white;
+  transition: text-shadow .3s;
+}
+
+.hover:hover {
+  font-weight: bold;
+}
+
+.scroll {
+  /* Alinhamento de rolagem */
+  scroll-snap-align: start;
+}
+
+.aparecer {
+  /* Aplicação da animação de aparecimento */
+  animation: aparecer;
+  animation-timeline: view();
+  animation-range: entry 0;
+}
+
+/* Header */
+.fixo {
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+}
+
+nav {
+  /* Estilo para a navegação */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+nav a {
+  /* Estilo para os links de navegação */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-grande);
+  padding: 10px;
+}
+
+/* botões do header */
+#bservico {
+  background-color: var(--cor-servico);
+  color: black;
+}
+#binicio {
+  background-color: var(--cor-inicio);
+  color: black;
+}
+#bcontato {
+  background-color: var(--cor-contato);
+  color: white;
+}
+#bsobre {
+  background-color: var(--cor-sobre);
+  color: white;
+}
+
+/* Main */
+.servicos {
+  display: grid; /* Layout em grid, estrutura do Site */
+  grid-template-columns: 1fr;
+  background-color: var(--cor-servico);
+}
+
+.servico,
+.sobre,
+.contato {
+  /* Estilo geral para cada seções */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+}
+
+.sobre {
+  flex-direction: column;
+  text-align: center;
+}
+
+.sobre h3 {
+  font-size: var(--font-enorme);
+  margin: 10px;
+}
+
+.sobre p {
+  font-size: var(--font-media);
+  text-align: justify;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.inicio img {
+  width: 40%;
+  margin: 50px;
+}
+
+#equipeimg {
+  margin-top: 20px;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.textoservico {
+  width: 50%;
+  margin-left: 40px;
+  font-size: var(--font-grande);
+  color: black;
+}
+
+.textoservico h3 {
+  font-size: var(--font-enorme);
+}
+
+.servico img {
+  width: 30%;
+  border-radius: 10px;
+}
+
+.contato h2 {
+  font-size: var(--font-enorme);
+}
+
+.informacoes-contato {
+  /* Estilo para as informações de contato */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 20px;
+
+}
+
+.informacoes-contato .hover {
+text-decoration:underline;
+margin: 20px;
+}
+
+/* Footer */
+.footerlogo {
+  scale: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--cor-inicio);
+}
+
+.linha {
+  /* Linha do Footer */
+  width: 80%;
+  border-bottom: 1px solid #cdd1d4;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.footer {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  padding-top: 20px;
+}
+
+.footer-texto {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-evenly;
+  width: 25%;
+}
+
+.footer-texto a {
+  color: #929ecc;
+  font-size: var(--font-pequena);
+}
+
+.footer-links img {
+  height: 16px;
+}
+
+.imagemfooter img {
+  height: 30px;
+  margin-top: 10px;
+}
+
+/* Responsividade */
+@media only screen and (max-width: 768px) {
+  :root {
+    --font-pequena: 0.875rem;
+    --font-media: 1.25rem;
+    --font-grande: 1.5rem;
+    --font-enorme: 2rem;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .fixo {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+
+  nav a {
+    font-size: var(--font-media);
+    padding: 5px;
+  }
+
+  .servico,
+  .sobre {
+    height: auto;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .sobre p {
+    width: 95%;
+    font-size: var(--font-pequena);
+  }
+
+  .sobre h3 {
+    font-size: var(--font-grande);
+  }
+
+  .inicio img {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  #equipeimg {
+    width: 60%;
+    margin-top: 10px;
+  }
+
+  .textoservico {
+    width: 90%;
+    margin-left: 0;
+    font-size: var(--font-media);
+  }
+
+  .textoservico h3 {
+    font-size: var(--font-grande);
+  }
+
+  .servico img {
+    width: 60%;
+  }
+
+
+  .contato h2 {
+    font-size: var(--font-grande);
+  }
+
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  .footer-texto {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .footer-texto a {
+    font-size: var(--font-pequena);
+    margin: 5px 0;
+  }
+
+  .footer-links img {
+    height: 16px;
+  }
+
+  .imagemfooter img {
+    height: 25px;
+    margin-top: 5px;
+  }
+}
